@@ -53,7 +53,7 @@
 						</div>
 						<div class="row">
 							<div class="column-5 offset-2">
-								<p>Firstly you will need to login with the google analytic and allow us access to your data. Don’t worry we never store your analytics data as all the communication is direct between your browser and google analytics.</p>
+								<p>Firstly you will need to allow wheremyfloldat to access to your google analytics data. Don’t worry we never store your analytics data as all the communication is direct between your browser and the google analytics api.</p>
 							</div>
 							<div class="column-3">
 							<button class="btn btn--large btn--solid btn--full" data-ng-click="Where.authorize()">Login</button>
@@ -88,19 +88,17 @@
 									data-ng-click="Where.selectView(view.id)"></button>
 						</div>
 					</div>
-					<div data-ng-switch-when="5" data-ng-controller="FoldController as Fold">
+					<div data-ng-switch-when="5">
 						<div class="display-container" data-ng-repeat="resolution in Where.resolutions">
 							<div
 								data-ng-if="Where.resolutions"
 								class="display"
-								data-ng-style="{ width: Fold.width(resolution[0]) + 'px', height: Fold.height(resolution[0]) + 'px'}"
+								data-ng-style="{ width: Where.width(resolution[0]) + 'px', height: Where.height(resolution[0]) + 'px'}"
 								>
 
 							</div>
 						</div>
 					</div>
-
-					<div ng-switch-default>...</div>
 				</div>
 			</div>
 		</div>

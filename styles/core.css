@@ -437,6 +437,10 @@ h5 {
   font-family: 'Roboto Slab', Times, serif;
   color: white;
 }
+strong {
+  font-weight: bold;
+  font-style: italic;
+}
 .nav {
   background-color: white;
 }
