@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="./styles/core.css">
+		<link href='https://fonts.googleapis.com/css?family=Roboto%7CRoboto+Slab:400,700' rel='stylesheet' type='text/css'>
+	</head>
+	<body data-ng-app="fold" data-ng-cloak data-ng-controller="WhereMyFoldController as Where">
+
+
+		<nav class="nav">
+			<div class="grid">
+				<div class="column-10 offset-1">
+					<h1 class="text-center" data-ng-class="{'started': Where.isStarted}">Where my fold at?</h1>
+				</div>
+			</div>
+
+
+			<div class="progress-bar" data-ng-class="{'progress-bar--unstarted': !Where.isStarted}">
+				<div class="progress-bar__stages">
+					<div class="progress-bar__stage" data-ng-class="{'progress-bar__stage--complete': Where.stage >= 1}"></div>
+					<div class="progress-bar__stage" data-ng-class="{'progress-bar__stage--complete': Where.stage >= 2}"></div>
+					<div class="progress-bar__stage" data-ng-class="{'progress-bar__stage--complete': Where.stage >= 3}"></div>
+					<div class="progress-bar__stage" data-ng-class="{'progress-bar__stage--complete': Where.stage >= 4}"></div>
+					<div class="progress-bar__stage" data-ng-class="{'progress-bar__stage--complete': Where.stage >= 5}"></div>
+				</div>
+				<div class="progress-bar__bg__fill"  data-ng-style="{width: Where.progress}"></div>
+				<div class="progress-bar__bg__border"></div>
+			</div>
+
+		</nav>
+
+		<div class="grid">
+				<div ng-switch="Where.stage">
+					<div ng-switch-when="0">
+						<div class="column-8 offset-2">
+
+							<h2>What is the fold?</h2>
+							<p>The fold is the horizontal line dictated by the bottom of the screen before a user scrolls. It was traditionally though that this screan realstage is high value and the most important information should be placed here.</p>
+
+							<h2>What does “Where my fold at” do?</h2>
+							<p>“Where my fold at” pulls data from the Google Analytics API in order to find out the screen resolutions of devices and display them for you to see where your fold is, if it exists at all.</p>
+
+							<div class="text-center" data-ng-if="Where.dispayStartButton">
+								<button class="btn btn--large btn--solid" data-ng-click="Where.start()">Find My Fold</button>
+							</div>
+						</div>
+					</div>
+					<div ng-switch-when="1">
+						<div class="column-8 offset-2">
+							<h2>Step 1 - Authentication</h2>
+						</div>
+						<div class="row">
+							<div class="column-5 offset-2">
+								<p>Firstly you will need to login with the google analytic and allow us access to your data. Don’t worry we never store your analytics data as all the communication is direct between your browser and google analytics.</p>
+							</div>
+							<div class="column-3">
+							<button class="btn btn--large btn--solid btn--full" data-ng-click="Where.authorize()">Login</button>
+							</div>
+						</div>
+					</div>
+					<div ng-switch-when="2">
+						<div class="column-8 offset-2">
+							<h2>Select An Account:</h2>
+							<button class="btn"
+									data-ng-repeat="account in Where.accounts"
+									data-ng-bind="account.name"
+									data-ng-click="Where.selectAccount(account)"></button>
+						</div>
+					</div>
+					<div ng-switch-when="3">
+						<div class="column-8 offset-2">
+
+							<h2>Select A Propety:</h2>
+							<button class="btn"
+									data-ng-repeat="property in Where.properties"
+									data-ng-bind="property.name"
+									data-ng-click="Where.selectProperty(property.accountId, property.id)"></button>
+						</div>
+					</div>
+					<div data-ng-switch-when="4">
+						<div class="column-8 offset-2">
+							<h2>Select A View:</h2>
+							<button class="btn"
+									data-ng-repeat="view in Where.views"
+									data-ng-bind="view.name"
+									data-ng-click="Where.selectView(view.id)"></button>
+						</div>
+					</div>
+					<div data-ng-switch-when="5" data-ng-controller="FoldController as Fold">
+						<div class="display-container" data-ng-repeat="resolution in Where.resolutions">
+							<div
+								data-ng-if="Where.resolutions"
+								class="display"
+								data-ng-style="{ width: Fold.width(resolution[0]) + 'px', height: Fold.height(resolution[0]) + 'px'}"
+								>
+
+							</div>
+						</div>
+					</div>
+
+					<div ng-switch-default>...</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="./js/app.js" async></script>
+</html>
