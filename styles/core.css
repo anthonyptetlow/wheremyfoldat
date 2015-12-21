@@ -443,6 +443,8 @@ strong {
 }
 .nav {
   background-color: white;
+  min-height: 152px;
+  margin-bottom: 20px;
 }
 .nav * {
   color: #15677D;
