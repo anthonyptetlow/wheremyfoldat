@@ -444,7 +444,6 @@ strong {
 .nav {
   background-color: white;
   min-height: 152px;
-  margin-bottom: 20px;
 }
 .nav * {
   color: #15677D;
@@ -471,6 +470,10 @@ strong {
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   position: relative;
   left: -50%;
+}
+.display__size {
+  position: absolute;
+  bottom: 0;
 }
 body {
   background-color: #15677D;
@@ -598,6 +601,93 @@ body {
   .offset-12 {
     margin-left: 100%;
   }
+}
+.field-group {
+  padding-bottom: 20px;
+}
+.field {
+  width: 70%;
+  float: left;
+}
+.label {
+  width: 30%;
+  float: left;
+}
+input[type=range] {
+  -webkit-appearance: none;
+  margin: 5px 0;
+  display: block;
+  background-color: transparent;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 12.8px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: #15677D;
+  border-radius: 25px;
+}
+input[type=range]::-webkit-slider-thumb {
+  border: 0px solid #15677D;
+  height: 20px;
+  width: 39px;
+  border-radius: 7px;
+  background: #0e4351;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -3.6px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #15677D;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 12.8px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: #15677D;
+  border-radius: 25px;
+}
+input[type=range]::-moz-range-thumb {
+  border: 0px solid #15677D;
+  height: 20px;
+  width: 39px;
+  border-radius: 7px;
+  background: #0e4351;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 12.8px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border-color: transparent;
+  border-width: 39px 0;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #15677D;
+  border-radius: 50px;
+}
+input[type=range]::-ms-fill-upper {
+  background: #15677D;
+  border-radius: 50px;
+}
+input[type=range]::-ms-thumb {
+  border: 0px solid #15677D;
+  height: 20px;
+  width: 39px;
+  border-radius: 7px;
+  background: #0e4351;
+  cursor: pointer;
+}
+input[type=range]:focus::-ms-fill-lower,
+input[type=range]:focus::-ms-fill-upper {
+  background: #15677D;
 }
 .btn {
   color: white;

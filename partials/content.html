@@ -29,7 +29,7 @@
 		</div>
 		<div ng-switch-when="2">
 			<div class="column-8 offset-2">
-				<h2>Select An Account:</h2>
+				<h2>Step 2 - Select An Account:</h2>
 				<button class="btn"
 						data-ng-repeat="account in Where.accounts"
 						data-ng-bind="account.name"
@@ -39,7 +39,7 @@
 		<div ng-switch-when="3">
 			<div class="column-8 offset-2">
 
-				<h2>Select A Propety:</h2>
+				<h2>Step 3 - Select A Propety:</h2>
 				<button class="btn"
 						data-ng-repeat="property in Where.properties"
 						data-ng-bind="property.name"
@@ -48,7 +48,7 @@
 		</div>
 		<div data-ng-switch-when="4">
 			<div class="column-8 offset-2">
-				<h2>Select A View:</h2>
+				<h2>Step 4 - Select A View:</h2>
 				<button class="btn"
 						data-ng-repeat="view in Where.views"
 						data-ng-bind="view.name"
@@ -56,13 +56,13 @@
 			</div>
 		</div>
 		<div data-ng-switch-when="5">
-			<div class="display-container" data-ng-repeat="resolution in Where.resolutions">
+			<div class="display-container" data-ng-repeat="resolution in Where.resolutions | filter: Where.filterCompatabilty">
 				<div
 					data-ng-if="Where.resolutions"
 					class="display"
 					data-ng-style="{ width: Where.width(resolution[0]) + 'px', height: Where.height(resolution[0]) + 'px'}"
 					>
-
+					<div class="display__size">{{resolution[0]}}</div>
 				</div>
 			</div>
 		</div>
