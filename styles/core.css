@@ -610,6 +610,10 @@ body {
   box-sizing: border-box;
   margin: 10px;
 }
+.btn:hover {
+  background-color: #0e4351;
+  cursor: pointer;
+}
 .btn--large {
   border-width: 2px;
   padding: 30px 40px;
@@ -619,10 +623,40 @@ body {
 .btn--solid {
   color: #15677D;
   background-color: white;
-  border-color: white;
+  border-color: #15677D;
+}
+.btn--solid:hover {
+  background-color: white;
 }
 .btn--full {
   width: 100%;
+}
+.edit {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  display: inline-block;
+  position: relative;
+  top: 3px;
+  margin-left: 5px;
+}
+.edit::before {
+  width: 5px;
+  height: 10px;
+  background-color: white;
+  content: "";
+  display: block;
+}
+.edit::after {
+  width: 0px;
+  height: 0px;
+  margin-top: 1px;
+  border-style: solid;
+  border-width: 5px 2.5px 0 2.5px;
+  border-color: white transparent transparent  transparent;
+  content: "";
+  display: block;
 }
 .progress-bar {
   position: relative;
@@ -637,6 +671,7 @@ body {
   box-sizing: border-box;
 }
 .progress-bar * {
+  color: white;
   box-sizing: border-box;
 }
 .progress-bar--unstarted {
@@ -667,6 +702,26 @@ body {
   border: 2px solid #15677D;
   top: -10px;
   background-color: white;
+}
+.progress-bar__stage-editor-container {
+  position: absolute;
+  z-index: 1010;
+  top: -22px;
+}
+.progress-bar__stage-editor-container:nth-child(2) {
+  left: 25%;
+}
+.progress-bar__stage-editor-container:nth-child(3) {
+  left: 50%;
+}
+.progress-bar__stage-editor-container:nth-child(4) {
+  left: 75%;
+}
+.progress-bar__stage-editor {
+  margin-left: -50%;
+  color: white;
+  border-color: #15677D;
+  text-align: center;
 }
 .progress-bar__stage--complete {
   z-index: 1010;

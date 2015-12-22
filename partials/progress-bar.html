@@ -1,9 +1,28 @@
 <div class="progress-bar" data-ng-class="{'progress-bar--unstarted': !Where.isStarted}">
 	<div class="progress-bar__stages">
 		<div class="progress-bar__stage" data-ng-class="{'progress-bar__stage--complete': Where.stage >= 1}"></div>
-		<div class="progress-bar__stage" data-ng-class="{'progress-bar__stage--complete': Where.stage >= 2}"></div>
-		<div class="progress-bar__stage" data-ng-class="{'progress-bar__stage--complete': Where.stage >= 3}"></div>
-		<div class="progress-bar__stage" data-ng-class="{'progress-bar__stage--complete': Where.stage >= 4}"></div>
+		<div class="progress-bar__stage" data-ng-if="Where.stage <= 2" data-ng-class="{'progress-bar__stage--complete': Where.stage >= 2}"></div>
+
+		<div class="progress-bar__stage-editor-container" data-ng-if="Where.stage >= 3">
+			<div class="btn progress-bar__stage-editor"  data-ng-click="Where.resetToStage(2)">
+				<span data-ng-bind="Where.account.name"></span>
+				<div class="edit"></div>
+			</div>
+		</div>
+		<div class="progress-bar__stage" data-ng-if="Where.stage <= 3" data-ng-class="{'progress-bar__stage--complete': Where.stage >= 3}"></div>
+		<div class="progress-bar__stage-editor-container" data-ng-if="Where.stage >= 4">
+			<div class="btn progress-bar__stage-editor" data-ng-click="Where.resetToStage(3)">
+				<span data-ng-bind="Where.property.name"></span>
+				<div class="edit"></div>
+			</div>
+		</div>
+		<div class="progress-bar__stage" data-ng-if="Where.stage <= 4" data-ng-class="{'progress-bar__stage--complete': Where.stage >= 4}"></div>
+		<div class="progress-bar__stage-editor-container" data-ng-if="Where.stage >= 5">
+			<div class="btn progress-bar__stage-editor" data-ng-click="Where.resetToStage(4)">
+				<span data-ng-bind="Where.view.name"></span>
+				<div class="edit"></div>
+			</div>
+		</div>
 		<div class="progress-bar__stage" data-ng-class="{'progress-bar__stage--complete': Where.stage >= 5}"></div>
 	</div>
 	<div class="progress-bar__bg__fill"  data-ng-style="{width: Where.progress}"></div>

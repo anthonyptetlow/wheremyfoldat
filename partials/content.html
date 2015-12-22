@@ -43,7 +43,7 @@
 				<button class="btn"
 						data-ng-repeat="property in Where.properties"
 						data-ng-bind="property.name"
-						data-ng-click="Where.selectProperty(property.accountId, property.id)"></button>
+						data-ng-click="Where.selectProperty(property)"></button>
 			</div>
 		</div>
 		<div data-ng-switch-when="4">
@@ -52,7 +52,7 @@
 				<button class="btn"
 						data-ng-repeat="view in Where.views"
 						data-ng-bind="view.name"
-						data-ng-click="Where.selectView(view.id)"></button>
+						data-ng-click="Where.selectView(view)"></button>
 			</div>
 		</div>
 		<div data-ng-switch-when="5">
