@@ -464,6 +464,7 @@ strong {
 .display-container {
   position: absolute;
   left: 50%;
+  top: 0;
 }
 .display {
   margin: 0 auto;
