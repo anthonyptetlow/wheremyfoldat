@@ -444,6 +444,10 @@ strong {
 .nav {
   background-color: white;
   min-height: 152px;
+  z-index: 1020;
+  position: relative;
+  left: 0;
+  right: 0;
 }
 .nav * {
   color: #15677D;
